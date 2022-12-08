@@ -1,0 +1,265 @@
+/* || Imports || */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap");
+
+/* || Initial Reset || */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #7bdaf3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+/* || Main Elements || */
+#createANoteBtn {
+  position: absolute;
+  top: 20px;
+  background-color: #9ec862;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  font-size: 0.9rem;
+  padding: 10px 20px 10px 40px;
+  cursor: pointer;
+  transform: all 0.2s;
+}
+
+#createANoteBtn:active {
+  background-color: #93c948;
+}
+
+.gg-math-plus {
+  position: absolute;
+  top: 9px;
+  left: -25px;
+}
+
+.notes {
+  width: 350px;
+  height: 250px;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  visibility: visible;
+}
+
+.notes::before {
+  content: "";
+  width: 310px;
+  height: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  position: absolute;
+  top: -40px;
+  z-index: -2;
+}
+
+.notes::after {
+  content: "";
+  width: 330px;
+  height: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  position: absolute;
+  top: -20px;
+  z-index: -1;
+}
+
+.tools {
+  width: 100%;
+  background-color: whitesmoke;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.tools button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #9ec862;
+  font-size: 1rem;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.tools button:active {
+  color: #95ff00;
+}
+
+#mainTextarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  margin-top: 50px;
+  resize: none;
+  font-size: 1rem;
+  padding: 5px;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  color: rgb(40, 40, 40);
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 5px;
+}
+
+#nodeDiv {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(40, 40, 40);
+  display: none;
+}
+
+#saveBtn,
+#editedSaveBtn,
+#clearAllBtn {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  background-color: #9ec862;
+  color: white;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+#saveBtn:hover,
+#editedSaveBtn:hover,
+#clearAllBtn:hover {
+  color: #000;
+}
+
+#saveBtn:active,
+#editedSaveBtn:active {
+  box-shadow: 0 0 7px rgb(158, 200, 98);
+}
+
+#clearAllBtn {
+  margin-top: 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#clearAllBtn:active {
+  box-shadow: 0 0 7px rgb(0, 0, 0, 0.2);
+}
+
+.editArea {
+  width: 350px;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: absolute !important;
+  visibility: hidden;
+}
+
+#editTextarea {
+  width: 100%;
+  height: 250px;
+  border: none;
+  resize: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 5px;
+  font-family: sans-serif;
+  color: rgb(40, 40, 40);
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 5px;
+}
+
+#arrowLeft {
+  position: absolute;
+  top: 45%;
+  left: calc(50% - 210px);
+  color: #65ad00;
+  cursor: pointer;
+  transition: color 0.15s;
+  display: none;
+}
+
+#arrowRight {
+  position: absolute;
+  top: 45%;
+  right: calc(50% - 210px);
+  color: #65ad00;
+  cursor: pointer;
+  transition: color 0.15s;
+  display: none;
+}
+
+#arrowLeft:active,
+#arrowRight:active {
+  color: #325500;
+}
+
+/* screen size accordance */
+@media (max-width: 500px) {
+  body,
+  html {
+    width: 100%;
+  }
+
+  .notes,
+  .editArea {
+    width: 70vw;
+  }
+
+  .notes::before {
+    width: 60vw;
+  }
+
+  .notes::after {
+    width: 65vw;
+  }
+
+  #arrowLeft {
+    left: 15px;
+  }
+
+  #arrowRight {
+    right: 15px;
+  }
+}
+
+@media (max-height: 520px) {
+  #createANoteBtn {
+    top: 10px;
+    font-size: 0.8rem;
+    padding: 5px 10px 5px 35px;
+  }
+}

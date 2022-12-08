@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App</title>
+    <link rel="stylesheet" href="notesApp.css" />
+    <link rel="icon" href="images/noteIcon.png">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link href="https://css.gg/arrow-left-o.css" rel="stylesheet" />
+    <link href="https://css.gg/arrow-right-o.css" rel="stylesheet" />
+    <link href="https://css.gg/math-plus.css" rel="stylesheet" />
+    <script src="notesApp.js" defer></script>
+  </head>
+  <body>
+    <!-- Create Note Button -->
+    <button id="createANoteBtn">
+      <i class="gg-math-plus"></i>Create a Node
+    </button>
+    <div id="arrowLeft"><i class="gg-arrow-left-o"></i></div>
+
+    <!-- Note Display Section -->
+    <section class="notes" id="mainAreaDiv">
+      <div class="tools">
+        <button id="editBtn"><i class="fas fa-edit"></i></button>
+        <button id="deleteBtn"><i class="fas fa-trash-alt"></i></button>
+      </div>
+      <div id="nodeDiv"></div>
+      <textarea id="mainTextarea"></textarea>
+      <button id="saveBtn">SAVE</button>
+    </section>
+
+    <!-- Note Edit Section -->
+    <div id="arrowRight"><i class="gg-arrow-right-o"></i></div>
+    <section class="editArea" id="editAreaDiv">
+      <textarea id="editTextarea"></textarea>
+      <button id="editedSaveBtn">SAVE</button>
+    </section>
+
+    <!-- Clear All Button -->
+    <button id="clearAllBtn">Clear All</button>
+  </body>
+</html>
